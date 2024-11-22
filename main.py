@@ -1,13 +1,13 @@
+import os
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from pyannote.audio import Pipeline
-import os
 
 app = Flask(__name__)
 CORS(app)  # מאפשר תמיכה ב-CORS לכל היישום
 
-# טוקן של Hugging Face (הכנס את הטוקן האישי שלך כאן)
-HUGGINGFACE_TOKEN = "YOUR_HUGGINGFACE_TOKEN"
+# טוקן של Hugging Face (מתוך משתנה סביבה)
+HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 
 # אתחול של מודל הדיאריזציה
 try:
